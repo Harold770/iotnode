@@ -57,11 +57,10 @@ class _IotScreenState extends State<IotScreen>
         )),
         body: SafeArea(
           child: StreamBuilder(
-              stream: dbRef.child('data').onValue,
-              builder: (context, snapshot) {
+              builder: (context, AsyncSnapshot snapshot) {
                 if (snapshot.hasData &&
                     !snapshot.hasError &&
-                    snapshot.data?.snapshot.value != null) {
+                    snapshot.data!.snapshot.value != null) {
                   return Column(
                     children: [
                       Padding(
